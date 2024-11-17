@@ -1,13 +1,25 @@
-
-<div>
+<div style="margin-top: 20px;">
   <% if user_signed_in? %>
-    <p>You signed in as 
-     <span style="margin-left:2px; color: green"><%= current_user.email%> </span>
+    <p>
+      You are signed in as 
+      <strong style="color: green;"><%= current_user.email %></strong>.
     </p>
-    <p> <%= button_to 'Sign Out', destroy_user_session_path, method: :delete %> </p>
+    <p>
+      <%= button_to 'Sign Out', destroy_user_session_path, method: :delete, 
+                    style: 'background-color: #f44336; color: white; border: none; padding: 10px 20px; cursor: pointer; border-radius: 10px;' %>
+    </p>
   <% else %>
-    <p> <%= button_to 'Sign In', new_user_session_path %> </p>
-    <p> <%= link_to 'Register', new_user_registration_path %> </p>
+    <p>
+      <%= button_to 'Sign In', new_user_session_path, 
+                    style: 'background-color: #4CAF50; color: white; border: none; padding: 10px 20px; cursor: pointer; border-radius: 10px;' %>
+    </p>
+    <p>
+      <%= link_to 'Register', new_user_registration_path, 
+            style: 'display: inline-block; padding: 10px 20px; background-color: #007BFF; color: white; text-decoration: none; font-weight: bold; border-radius: 10px;' %>
+    </p>
   <% end %>
 </div>
-<h1 style="text-align:center">Welcome to Members Only Blog</h1>
+
+<h1 style="text-align: center; margin-top: 40px; font-family: Arial, sans-serif; font-size: 2.5rem;">
+  Welcome to Members Only Blog
+</h1>
