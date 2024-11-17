@@ -1,2 +1,16 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<div style="margin: 20px auto; max-width: 800px;">
+  <% @posts.each do |post| %>
+    <div style="border: 1px solid #ddd; border-radius: 5px; padding: 15px; margin-bottom: 20px; box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);">
+      <% if user_signed_in? %>
+        <p style="color: #555; font-size: 0.9rem; margin-bottom: 10px;">
+        <strong>Author:</strong> <%= post.user.email %>
+        </p>
+      <% end %>
+      
+      <h2 style="margin: 5px 0; font-size: 1.5rem; color: #333;"><%= post.title %></h2>
+      <p style="margin: 10px 0; line-height: 1.5; color: #666;"><%= post.body %></p>
+      <p style="color: #888; font-size: 0.8rem;"> Posted on <%= post.created_at.strftime("%B %d, %Y at %I:%M %p") %></p>
+      <hr style="border-top: 1px solid #eee;">
+    </div>
+  <% end %>
+</div>
