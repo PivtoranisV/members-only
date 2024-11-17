@@ -1,1 +1,13 @@
+
+<div>
+  <% if user_signed_in? %>
+    <p>You signed in as 
+     <span style="margin-left:2px; color: green"><%= current_user.email%> </span>
+    </p>
+    <p> <%= button_to 'Sign Out', destroy_user_session_path, method: :delete %> </p>
+  <% else %>
+    <p> <%= button_to 'Sign In', new_user_session_path %> </p>
+    <p> <%= link_to 'Register', new_user_registration_path %> </p>
+  <% end %>
+</div>
 <h1 style="text-align:center">Welcome to Members Only Blog</h1>
