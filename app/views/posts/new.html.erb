@@ -1,2 +1,24 @@
-<h1>Posts#new</h1>
-<p>Find me in app/views/posts/new.html.erb</p>
+<%= form_with model: @post do |form| %>
+  <% if @post.errors.any? %>
+    <div class="error-messages">
+      <h2><%= pluralize(@post.errors.count, "error") %> prevented this post from being saved:</h2>
+      <ul>
+        <% @post.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :title, "Post Title" %>
+    <%= form.text_field :title %>
+  </div>
+  <br><br>
+  <div>
+    <%= form.label :body, "Post" %>
+    <%= form.text_field :body %>
+  </div>
+  <br><br>
+  <%= form.submit %>
+<% end %>
